@@ -24,6 +24,15 @@ const Navbar: React.FunctionComponent = (props) => {
                     <Button href='/hotspots' sx={{ color: '#fff' }}>
                         Hotspots
                     </Button>
+                    <Button href='/moodboard' sx={{ color: '#fff' }}>
+                        Moodboard
+                    </Button>
+                    <Button href='/main-and-detail' sx={{ color: '#fff' }}>
+                        Main and Detail
+                    </Button>
+                    <Button href='/gallery' sx={{ color: '#fff' }}>
+                        Gallery
+                    </Button>
                 </Box>
             </Toolbar>
         </AppBar>
