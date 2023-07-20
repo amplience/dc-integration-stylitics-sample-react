@@ -1,10 +1,9 @@
 import '../App.css';
 import { Box, Typography } from '@mui/material';
-import Classic from '../components/Classic';
+import Hotspots from '../components/Hotspots';
 import Navbar from '../components/Navbar';
 
-function ClassicPage() {
-
+function HotspotsPage() {
   return (
     <div className="App">
       <header className="App-header">
@@ -14,12 +13,12 @@ function ClassicPage() {
           <Navbar />
         </Box>
         <Box sx={{ width: '100%', flexGrow: 1, textAlign: 'left', pb: 4, pt: 2, pl: 4 }}>
-          <Typography>Stylitics Classic Widget</Typography>
-          <Classic />
+          <Typography>Stylitics Hotspots Widget</Typography>
+          <Hotspots />
         </Box>
       </header>
     </div>
   );
 }
 
-export default ClassicPage;
+export default HotspotsPage;

@@ -1,10 +1,11 @@
 import '../App.css';
-import { AppBar, Box, Toolbar, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Classic from '../components/Classic';
 import Hotspots from '../components/Hotspots';
 import MainAndDetail from '../components/MainAndDetail';
 import Moodboard from '../components/Moodboard';
 import Gallery from '../components/Gallery';
+import Navbar from '../components/Navbar';
 
 function Home() {
 
@@ -14,13 +15,7 @@ function Home() {
      
         {/* Main View */}
 			  <Box style={{ width: '100%' }}>
-          <AppBar position='sticky'>
-            <Toolbar variant='dense'>
-            <Typography variant='h6' color='inherit' component='div'>
-              Amplience Stylitics React Sample
-            </Typography>
-            </Toolbar>
-          </AppBar>
+          <Navbar />
         </Box>
         <Box sx={{ width: '100%', flexGrow: 1, textAlign: 'left', pb: 4, pt: 2, pl: 4 }}>
           <Box sx={{pb: 4}}>
