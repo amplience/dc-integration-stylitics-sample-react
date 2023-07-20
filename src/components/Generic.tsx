@@ -135,7 +135,7 @@ const Generic: React.FunctionComponent<Props> = (props) => {
                 target.innerHTML = '';
             }
         };
-    }, [container, view, sku, api, display, price, classic, moodboard, gallery, hotspots, mainAndDetail]);
+    }, [account, variant, container, view, sku, api, display, price, classic, moodboard, gallery, hotspots, mainAndDetail]);
 
     return (
         <div>
