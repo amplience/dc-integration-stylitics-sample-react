@@ -6,12 +6,14 @@ import HotspotsPage from './pages/HotspotsPage';
 import MoodboardPage from './pages/MoodboardPage';
 import MainAndDetailPage from './pages/MainAndDetailPage';
 import GalleryPage from './pages/GalleryPage';
+import GenericPage from './pages/GenericPage';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" Component={HomePage} />
+        <Route path="/generic" Component={GenericPage} />
         <Route path="/classic" Component={ClassicPage} />
         <Route path="/hotspots" Component={HotspotsPage} />
         <Route path="/moodboard" Component={MoodboardPage} />

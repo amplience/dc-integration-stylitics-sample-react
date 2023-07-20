@@ -18,6 +18,9 @@ const Navbar: React.FunctionComponent = (props) => {
                     <Button href='/' sx={{ color: '#fff' }}>
                         Home
                     </Button>
+                    <Button href='/generic' sx={{ color: '#fff' }}>
+                        Generic
+                    </Button>
                     <Button href='/classic' sx={{ color: '#fff' }}>
                         Classic
                     </Button>
