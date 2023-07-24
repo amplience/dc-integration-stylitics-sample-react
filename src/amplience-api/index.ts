@@ -1,5 +1,5 @@
-import {ContentClient, ContentMeta, ContentReference} from 'dc-delivery-sdk-js'
-import {chunk, flatten, intersection, compact} from 'lodash'
+import {ContentClient} from 'dc-delivery-sdk-js'
+import {chunk, flatten} from 'lodash'
 
 /**
  * ID or Key request
@@ -136,7 +136,7 @@ export class AmplienceAPI {
         if ('content' in response) {
             return response.content
         }
-        
+
         return response
     }
 
