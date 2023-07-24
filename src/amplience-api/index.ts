@@ -35,6 +35,9 @@ export type FetchParams = {
  * Default fetch params.
  */
 const defaultParams: FetchParams = {
+    locale: 'en-US',
+    depth: 'all',
+    format: 'inlined'
 }
 
 /**
@@ -83,7 +86,7 @@ export class AmplienceAPI {
      */
     constructor() {
         this.clientReady = new Promise((resolve) => (this.clientReadyResolve = resolve))
-        this.client = new ContentClient({hubName: process.env.AMPLIENCE_DC_HUB || 'styliticsdemo'})
+        this.client = new ContentClient({hubName: process.env.AMPLIENCE_DC_HUB || 'nmdemostore'})
     }
 
     /**
@@ -92,9 +95,7 @@ export class AmplienceAPI {
      * @param params Options for fetch.
      * @returns Content or errors returned from Dynamic Content.
      */
-    async fetchContentMultiple(args: IdOrKey[], params: FetchParams = {}) {
-        await this.clientReady
-
+    async fetchContent(args: IdOrKey[], params: FetchParams = {}) {
         params = addDefaultParams(params)
 
         const client = params?.client ?? this.client
@@ -116,28 +117,9 @@ export class AmplienceAPI {
 
         return items
     }
-
-
-    /**
-     * Fetch content from Dynamic Content in batch.
-     * @param args A list of IDs or keys to fetch.
-     * @param params Options for fetch.
-     * @returns Content or errors returned from Dynamic Content.
-     */
-    async fetchContent(args: IdOrKey, params: FetchParams = {}) {
-        await this.clientReady
-
-        params = addDefaultParams(params)
-
-        const client = params?.client ?? this.client
-
-        let response = await client.getContentItems([args], getClientParams(params))
-
-        if ('content' in response) {
-            return response.content
-        }
-
-        return response
-    }
-
 }
+
+/**
+ * The default Amplience client.
+ */
+export const defaultAmpClient = new AmplienceAPI()

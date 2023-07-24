@@ -1,7 +1,7 @@
 import '../App.css';
 import { Box, Typography } from '@mui/material';
-import MainAndDetail from '../components/MainAndDetail';
 import Navbar from '../components/Navbar';
+import ContentBlock from '../components/ContentBlock';
 
 function MainAndDetailPage() {
   return (
@@ -14,7 +14,7 @@ function MainAndDetailPage() {
         </Box>
         <Box sx={{ width: '100%', flexGrow: 1, textAlign: 'left', pb: 4, pt: 2, pl: 4 }}>
           <Typography>Stylitics Hotspots Widget</Typography>
-          <MainAndDetail />
+          <ContentBlock request={{key: 'stylitics/main-and-detail-example'}} />
         </Box>
       </header>
     </div>

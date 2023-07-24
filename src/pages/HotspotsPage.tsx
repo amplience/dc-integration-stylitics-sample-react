@@ -1,7 +1,7 @@
 import '../App.css';
 import { Box, Typography } from '@mui/material';
-import Hotspots from '../components/Hotspots';
 import Navbar from '../components/Navbar';
+import ContentBlock from '../components/ContentBlock';
 
 function HotspotsPage() {
   return (
@@ -13,8 +13,14 @@ function HotspotsPage() {
           <Navbar />
         </Box>
         <Box sx={{ width: '100%', flexGrow: 1, textAlign: 'left', pb: 4, pt: 2, pl: 4 }}>
-          <Typography>Stylitics Hotspots Widget</Typography>
-          <Hotspots />
+          <Box sx={{pb: 4}}>
+            <Typography>Stylitics Hotspots Widget</Typography>
+            <ContentBlock request={{key: 'stylitics/hotspots-example'}} />
+          </Box>
+          <Box sx={{pb: 4}}>
+            <Typography>Stylitics Hotspots Widget - 2</Typography>
+            <ContentBlock request={{key: 'stylitics/hotspots-example-2'}} />
+          </Box>
         </Box>
       </header>
     </div>

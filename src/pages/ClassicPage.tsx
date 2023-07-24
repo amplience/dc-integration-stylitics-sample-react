@@ -1,7 +1,7 @@
 import '../App.css';
 import { Box, Typography } from '@mui/material';
-import Classic from '../components/Classic';
 import Navbar from '../components/Navbar';
+import ContentBlock from '../components/ContentBlock';
 
 function ClassicPage() {
 
@@ -15,7 +15,7 @@ function ClassicPage() {
         </Box>
         <Box sx={{ width: '100%', flexGrow: 1, textAlign: 'left', pb: 4, pt: 2, pl: 4 }}>
           <Typography>Stylitics Classic Widget</Typography>
-          <Classic />
+          <ContentBlock request={{key: 'stylitics/classic-example'}} />
         </Box>
       </header>
     </div>

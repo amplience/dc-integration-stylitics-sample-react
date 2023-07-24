@@ -1,7 +1,7 @@
 import '../App.css';
 import { Box, Typography } from '@mui/material';
-import Generic from '../components/Generic';
 import Navbar from '../components/Navbar';
+import ContentBlock from '../components/ContentBlock';
 
 function GenericPage() {
 
@@ -15,7 +15,7 @@ function GenericPage() {
         </Box>
         <Box sx={{ width: '100%', flexGrow: 1, textAlign: 'left', pb: 4, pt: 2, pl: 4 }}>
           <Typography>Stylitics Generic Widget</Typography>
-          <Generic />
+          <ContentBlock request={{key: 'stylitics/generic-example'}} />
         </Box>
       </header>
     </div>
