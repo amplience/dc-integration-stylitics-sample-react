@@ -59,9 +59,9 @@ const Generic: React.FunctionComponent<Props> = (props) => {
                 widgetInstance = widget;
 
                 // Click override to redirect to Product page
-                widget.override("click", "item", function (props: any) {
-                    window.location.href = `/product/${props.item.remote_id}/${_.kebabCase(props.item.name)}`
-                })
+                // widget.override("click", "item", function (props: any) {
+                //     window.location.href = `/product/${props.item.remote_id}/${_.kebabCase(props.item.name)}`
+                // })
 
                 widget.start();
             } else {
