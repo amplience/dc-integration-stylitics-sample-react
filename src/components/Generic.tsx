@@ -1,5 +1,7 @@
 import React, { createRef, useEffect } from 'react';
+import _ from 'lodash'
 import { Typography } from '@mui/material';
+import { fromContentItem, createWidget, StyliticsWidget } from 'dc-integration-stylitics';
 
 /**
  * Generic props
@@ -20,6 +22,8 @@ interface Props {
     sku?: string;
     view?:string;
     variant?:string;
+    min: number;
+    max: number;
 }
 
 /**
@@ -30,18 +34,6 @@ interface Props {
 const Generic: React.FunctionComponent<Props> = (props) => {
     const {
         header,
-        view,
-        api,
-        display,
-        price,
-        gallery,
-        moodboard,
-        mainAndDetail,
-        hotspots,
-        classic,
-        account = 'demo',
-        variant = "classic",
-        sku
     } = props;
 
     const container = createRef<HTMLDivElement>();
@@ -52,90 +44,44 @@ const Generic: React.FunctionComponent<Props> = (props) => {
         }
 
         let target = container.current;
-        const {StyliticsClassicWidget, StyliticsHotspotsWidget, StyliticsMoodboardWidget, StyliticsGalleryWidget, StyliticsMainAndDetailWidget } = window as any;        
-        
-        const config: any = {
-            api: {
-                item_number: 'BG654_BL8133',
-                max: api?.max || 6,
-                min: api?.min || 3
-            },
-            display,
-            price
+        let active = true;
+        let widgetInstance: StyliticsWidget;
+
+        // Item can be modified
+        const item = {
+            ...props
         }
 
-        const styliticsAccount = account
+        const args = fromContentItem(item as any);
 
-        let widgetInstance
+        createWidget(target, args).then((widget: StyliticsWidget) => {
+            if (active) {
+                widgetInstance = widget;
 
-        const viewSelector = view || variant;
+                // Click override to redirect to Product page
+                widget.override("click", "item", function (props: any) {
+                    window.location.href = `/product/${props.item.remote_id}/${_.kebabCase(props.item.name)}`
+                })
 
-        // Configuring and instantiating Stylitics Widget instance
-        switch( viewSelector ){
-            case "classic":
-                if (classic?.display) {
-                    config.display = { ...config.display, ...classic.display }
-                }
-                config.navigation = classic?.navigation
-                config.text = classic?.text
-                widgetInstance = new StyliticsClassicWidget(styliticsAccount, target, config)
-                break;
-            case "hotspots":
-                if (hotspots?.display) {
-                    config.display = { ...config.display, ...hotspots.display }
-                }
-                config.text = hotspots?.text
-                if (config?.display?.hotspotsOverlayOrder) {
-                    config.display.hotspotsOverlayOrder = config.display.hotspotsOverlayOrder.map((item: string) => {
-                        return item.split(',')
-                    })
-                }
-                widgetInstance = new StyliticsHotspotsWidget(styliticsAccount, target, config)
-                break;
-            case "moodboard":
-                if (moodboard?.display) {
-                    config.display = { ...config.display, ...moodboard.display }
-                }
-                config.navigation = moodboard?.navigation
-                config.text = moodboard?.text
-                widgetInstance = new StyliticsMoodboardWidget(styliticsAccount, target, config)
-                break;
-            case "gallery":
-                if (gallery?.display) {
-                    config.display = { ...config.display, ...gallery.display }
-                }
-                if (gallery?.api) {
-                    config.api = { ...config.api, ...gallery.api }
-                }
-                config.navigation = gallery?.navigation
-                config.text = gallery?.text
-                widgetInstance = new StyliticsGalleryWidget(styliticsAccount, target, config)
-                break;
-            case "mainAndDetail":
-                if (mainAndDetail?.display) {
-                    config.display = { ...config.display, ...mainAndDetail.display }
-                }
-                widgetInstance = new StyliticsMainAndDetailWidget(styliticsAccount, target, config)
-                break;
-            default:
-                if (classic?.display) {
-                    config.display = { ...config.display, ...classic.display }
-                }
-                config.navigation = classic?.navigation
-                config.text = classic?.text
-                widgetInstance = new StyliticsClassicWidget(styliticsAccount, target, config)
-                break;
-        }
+                widget.start();
+            } else {
+                widget.destroy();
+            }
+        })
 
-        widgetInstance.start();
-        
         // Cleanup
         return () => {
+            if (widgetInstance) {
+                widgetInstance.destroy();
+            }
+
             if (target) {
                 target.innerHTML = '';
             }
+
+            active = false;
         };
-    }, [account, variant, container, view, sku, api, display, price, classic, moodboard, gallery, hotspots, mainAndDetail]);
+    }, [container, props]);
 
     return (
         <div>
