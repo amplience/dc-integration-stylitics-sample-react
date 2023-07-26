@@ -1,5 +1,4 @@
 import React, { createRef, useEffect } from 'react';
-import _ from 'lodash'
 import { Typography } from '@mui/material';
 import { fromContentItem, createWidget, StyliticsWidget } from 'dc-integration-stylitics';
 
@@ -57,12 +56,6 @@ const Generic: React.FunctionComponent<Props> = (props) => {
         createWidget(target, args).then((widget: StyliticsWidget) => {
             if (active) {
                 widgetInstance = widget;
-
-                // Click override to redirect to Product page
-                // widget.override("click", "item", function (props: any) {
-                //     window.location.href = `/product/${props.item.remote_id}/${_.kebabCase(props.item.name)}`
-                // })
-
                 widget.start();
             } else {
                 widget.destroy();
