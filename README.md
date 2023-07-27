@@ -4,6 +4,44 @@
 
 This sample React application showcase the use of the [amplience/dc-integration-stylitics](https://github.com/amplience/dc-integration-stylitics) library that allows you to easily convert a stylitics Content Item in Dynamic Content to configure and instantiate a Stylitics Widget.
 
+The sample React application connects to Dynamic Content to retrieve Stylitics Content Items from the `styliticsdemo` demonstration hub using [Content Delivery v2 API](https://amplience.com/developers/docs/apis/content-delivery/content-delivery-overview).
+
+The following Content Items are fetched:
+
+|Content Item|Delivery key|
+|------------|------------|
+|Stylitics - Generic Example|`stylitics/generic-example`|
+|Stylitics - Classic Example|`stylitics/classic-example`|
+|Stylitics - Hotspots Example|`stylitics/hotspots-example`|
+|Stylitics - Hotspots Example 2|`stylitics/hotspots-example-2`|
+|Stylitics - Moodboard Example|`stylitics/moodbaord-example`|
+|Stylitics - Moodboard Example 2|`stylitics/moodbaord-example-2`|
+|Stylitics - Main and Detail Example|`stylitics/main-and-detail-example`|
+|Stylitics - Gallery Example|`stylitics/gallery-example`|
+|Stylitics - Gallery Example 2|`stylitics/gallery-example-2`|
+
+# Sample code
+
+The following code is using the `dc-integration-stylitics` library, `item` is the content from the Content Item:
+
+```ts
+import { fromContentItem, createWidget, StyliticsWidget } from 'dc-integration-stylitics';
+
+...
+
+const args = fromContentItem(item as any);
+
+createWidget(target, args).then((widget: StyliticsWidget) => {
+    if (active) {
+        widgetInstance = widget;
+        widget.start();
+    } else {
+        widget.destroy();
+    }
+})
+```
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
