@@ -1,3 +1,9 @@
+# Amplience Stylitics Sample React app
+
+![Amplience Stylitics Sample React app)](./docs/media/stylitics-sample-1.png)
+
+This sample React application showcase the use of the [amplience/dc-integration-stylitics](https://github.com/amplience/dc-integration-stylitics) library that allows you to easily convert a stylitics Content Item in Dynamic Content to configure and instantiate a Stylitics Widget.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
