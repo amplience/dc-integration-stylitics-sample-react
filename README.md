@@ -6,6 +6,9 @@ This sample React application showcase the use of the [amplience/dc-integration-
 
 The sample React application connects to Dynamic Content to retrieve Stylitics Content Items from the `styliticsdemo` demonstration hub using [Content Delivery v2 API](https://amplience.com/developers/docs/apis/content-delivery/content-delivery-overview).
 
+
+## Stylitics Content Items
+
 The following Content Items are fetched:
 
 |Content Item|Delivery key|
@@ -20,7 +23,15 @@ The following Content Items are fetched:
 |Stylitics - Gallery Example|`stylitics/gallery-example`|
 |Stylitics - Gallery Example 2|`stylitics/gallery-example-2`|
 
-# Sample code
+## Using a different Dynamic Content hub
+
+You can point to a different hub by creating a `.env.local` file at the root of your project set the following property and restart the application:
+
+```
+REACT_APP_AMPLIENCE_DC_HUB=<your hub name>
+```
+
+## Sample code
 
 The following code is using the `dc-integration-stylitics` library, `item` is the content from the Content Item:
 
@@ -41,12 +52,9 @@ createWidget(target, args).then((widget: StyliticsWidget) => {
 })
 ```
 
-
-# Getting Started with Create React App
+## Available Scripts
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
 
 In the project directory, you can run:
 
