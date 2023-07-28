@@ -86,7 +86,7 @@ export class AmplienceAPI {
      */
     constructor() {
         this.clientReady = new Promise((resolve) => (this.clientReadyResolve = resolve))
-        this.client = new ContentClient({hubName: process.env.AMPLIENCE_DC_HUB || 'styliticsdemodev'})
+        this.client = new ContentClient({hubName: process.env.REACT_APP_AMPLIENCE_DC_HUB || 'styliticsdemodev'})
     }
 
     /**

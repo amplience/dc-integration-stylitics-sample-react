@@ -21,7 +21,9 @@ const ContentBlock: FC<Props> = ({request}) => {
     return <>
         {
             content?.map((entry: any, index: number) => {
-                return <Generic key={index} {...entry} />
+                if (entry.account) {
+                    return <Generic key={index} {...entry} />
+                }
             })
         }
     </>
