@@ -1,22 +1,23 @@
 import { FC, useEffect, useState } from 'react'
 import Generic from "./Generic";
-import { defaultAmpClient, IdOrKey } from '../amplience-api';
+import { defaultAmpClient, FetchParams, IdOrKey } from '../amplience-api';
 
 interface Props {
-    request: IdOrKey; 
+    request: IdOrKey;
+    params?: FetchParams;
 }
 
-const ContentBlock: FC<Props> = ({request}) => {
+const ContentBlock: FC<Props> = ({request, params}) => {
 
     const [content, setContent] = useState<any>(null)
 
     useEffect(() => {
         const fetchData = async () => {
-            const items = await defaultAmpClient.fetchContent([request], {})
+            const items = await defaultAmpClient.fetchContent([request], params || {})
             setContent(items)
         }
         fetchData()
-    }, [request])
+    }, [request, params])
     
     return <>
         {
