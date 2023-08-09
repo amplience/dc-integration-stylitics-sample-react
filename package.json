@@ -16,6 +16,7 @@
     "@types/react-router-dom": "^5.3.3",
     "dc-delivery-sdk-js": "^0.11",
     "dc-integration-stylitics": "github:amplience/dc-integration-stylitics#develop",
+    "dc-visualization-sdk": "^1.1.0",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
