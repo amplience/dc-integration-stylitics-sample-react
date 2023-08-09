@@ -56,6 +56,8 @@ createWidget(target, args).then((widget: StyliticsWidget) => {
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Node version: `18.x`
+
 In the project directory, you can run:
 
 ### `npm start`
