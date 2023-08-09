@@ -7,6 +7,7 @@ import MoodboardPage from './pages/MoodboardPage';
 import MainAndDetailPage from './pages/MainAndDetailPage';
 import GalleryPage from './pages/GalleryPage';
 import GenericPage from './pages/GenericPage';
+import VisPage from './pages/VisPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/moodboard" Component={MoodboardPage} />
         <Route path="/main-and-detail" Component={MainAndDetailPage} />
         <Route path="/gallery" Component={GalleryPage} />
+        <Route path="/vis" Component={VisPage} />
       </Routes>
     </Router>
   );

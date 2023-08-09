@@ -85,8 +85,19 @@ export class AmplienceAPI {
      * Create the Amplience API.
      */
     constructor() {
+        let vse: string | undefined;
+
+        if (typeof window !== 'undefined') {
+            const query = new URLSearchParams(window.location.search);
+
+            vse = query.get('vse') ?? undefined;
+        }
+
         this.clientReady = new Promise((resolve) => (this.clientReadyResolve = resolve))
-        this.client = new ContentClient({hubName: process.env.REACT_APP_AMPLIENCE_DC_HUB || 'styliticsdemodev'})
+        this.client = new ContentClient({
+            hubName: process.env.REACT_APP_AMPLIENCE_DC_HUB || 'styliticsdemodev',
+            stagingEnvironment: vse
+        });
     }
 
     /**
