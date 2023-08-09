@@ -13,7 +13,7 @@ function VisPage() {
       <header className="App-header">
      
         {/* Main View */}
-			  <Box style={{ width: '100%' }}>
+        <Box style={{ width: '100%' }}>
           <Navbar />
         </Box>
         <Box sx={{ width: '100%', flexGrow: 1, textAlign: 'left', pb: 4, pt: 2, pl: 4 }}>
