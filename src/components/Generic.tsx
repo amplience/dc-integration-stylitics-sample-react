@@ -1,5 +1,4 @@
 import React, { createRef, useEffect } from 'react';
-import { Typography } from '@mui/material';
 import { fromContentItem, createWidget, StyliticsWidget } from 'dc-integration-stylitics';
 
 /**
@@ -8,7 +7,6 @@ import { fromContentItem, createWidget, StyliticsWidget } from 'dc-integration-s
 interface Props {
     className?: string;
     style?: React.CSSProperties;
-    header?: string;
     gallery?: any;
     moodboard?: any;
     mainAndDetail?: any;
@@ -31,10 +29,6 @@ interface Props {
  * @returns 
  */
 const Generic: React.FunctionComponent<Props> = (props) => {
-    const {
-        header,
-    } = props;
-
     const container = createRef<HTMLDivElement>();
 
     useEffect(() => {
@@ -78,13 +72,6 @@ const Generic: React.FunctionComponent<Props> = (props) => {
 
     return (
         <div>
-            {
-                header && ( 
-                    <Typography variant="h2" component="h2">
-                        {header}
-                    </Typography>
-                )
-            }
             <div ref={container} className="stylitics"></div>
         </div>
     );
