@@ -29,7 +29,6 @@ interface Props {
  * @returns 
  */
 const Generic: React.FunctionComponent<Props> = (props) => {
-
     const container = createRef<HTMLDivElement>();
 
     useEffect(() => {
