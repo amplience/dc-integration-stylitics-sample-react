@@ -12,8 +12,8 @@ export type IdOrKey = {id: string} | {key: string}
  * @returns The fallback locale.
  */
 const addFallback = (locale: string | undefined): string => {
-    if (locale == null) {
-        return 'en-US,*'
+    if (!locale) {
+        return '*'
     } else if (locale.indexOf(',') === -1) {
         return locale + ',*'
     }
